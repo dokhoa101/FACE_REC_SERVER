@@ -14,7 +14,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 app = FastAPI(title="Face Recognition Server")
 
-face_app = FaceAnalysis(name="buffalo_s",  root="./models")
+face_app = FaceAnalysis(name="buffalo_s", providers=["CPUExecutionProvider"])
 face_app.prepare(ctx_id=0, det_size=(320, 320))
 
 if os.path.exists(EMBED_FILE):
